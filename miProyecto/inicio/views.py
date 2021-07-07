@@ -3,4 +3,8 @@ from django.http import HttpResponse
 
 # Create your views here.
 def Home(request, *args, **kwargs):
-    return render(request, "home.html", {})
+    context = {
+            'text':"Texto del desarrollador",
+            'number':12,
+            }
+    return render(request, "home.html", context)
