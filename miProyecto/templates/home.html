@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Django!</title>
-  </head>
-  <body>
-    <h1>Hola mundooo</h1>
-  </body
-</html>
+{% extends 'base.html' %}
+{% block content %}
+<h2>Hola mundo, soy Jackson</h2>
+{{ request.user }}
+{% endblock %}
