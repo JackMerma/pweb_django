@@ -21,6 +21,6 @@ from personas.views import personaTestView, personaCreateView
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Home, name="Inicio"),
-    path('persona/', personaTestView, name="personas"),
+    path('persona/', personaTestView, name="testViewPersonas"),
     path('agregar/', personaCreateView, name="create"),
 ]

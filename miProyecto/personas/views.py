@@ -9,7 +9,7 @@ def personaTestView(request):
             'objeto':obj,
             }
     print(context)
-    return render(request, 'home.html', context)
+    return render(request, 'descripcion.html', context)
 
 def personaCreateView(request):
     form = PersonaForm(request.POST or None)
@@ -21,3 +21,6 @@ def personaCreateView(request):
             'form':form
             }
     return render(request, 'personasCreate.html', context)
+
+def searchForHelp(request):
+    return render(request, 'search.html', {})
