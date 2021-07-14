@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from inicio.views import Home
-from personas.views import personaTestView, personaCreateView
+from personas.views import personaTestView, personaCreateView, searchForHelp
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Home, name="Inicio"),
-    path('persona/', personaTestView, name="testViewPersonas"),
+    path('people/', personaTestView, name="testViewPersonas"),
     path('agregar/', personaCreateView, name="create"),
+    path('search', searchForHelp, name="buscar")
 ]
