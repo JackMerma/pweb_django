@@ -23,9 +23,9 @@ def personaCreateView(request):
     return render(request, 'personasCreate.html', context)
 
 def personaAnotherCreateView(request):
-    form=RawPersonaForm()
+    form=PersonaForm()
     if(request.method=='POST'):
-        form=RawPersonaForm(request.POST)
+        form=PersonaForm(request.POST)
         if form.is_valid():
             print(form.cleaned_data)
             Persona.objects.create(**form.cleaned_data)
