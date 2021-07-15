@@ -12,7 +12,10 @@ def personaTestView(request):
     return render(request, 'descripcion.html', context)
 
 def personaCreateView(request):
-    form = PersonaForm(request.POST or None)
+    obj=Persona.objects.get(id=2)
+    form=PersonaForm(request.POST or None, instance=obj)
+    
+    #form = PersonaForm(request.POST or None)
     if form.is_valid():
         form.save()
         form=PersonaForm()
@@ -23,8 +26,10 @@ def personaCreateView(request):
     return render(request, 'personasCreate.html', context)
 
 def personaAnotherCreateView(request):
+    #form=RawPersonaForm()
     form=PersonaForm()
     if(request.method=='POST'):
+        #form=RawPersonaForm(request.POST)
         form=PersonaForm(request.POST)
         if form.is_valid():
             print(form.cleaned_data)
