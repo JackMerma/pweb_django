@@ -82,3 +82,4 @@ def personasListView(request):
 
 class PersonaListView(ListView):
     model = Persona
+    queryset = Persona.objects.filter(nombres = 'Jackson')
