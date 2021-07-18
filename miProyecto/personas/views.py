@@ -8,6 +8,7 @@ from django.views.generic import (
     DetailView,
     CreateView,
     UpdateView,
+    DeleteView,
 )
 
 # Create your views here.
@@ -113,3 +114,8 @@ class PersonaUpdateView(UpdateView):
         'donador',
     ]
     template_name_suffix = '_update'
+
+class PersonaDeleteView(DeleteView):
+    model = Persona
+    #template_name_suffix = '_delete'
+    success_url = reverse_lazy('personas:persona-list')
