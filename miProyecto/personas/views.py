@@ -3,6 +3,9 @@ from .models import  Persona
 from .forms import PersonaForm, RawPersonaForm
 from django.urls import reverse_lazy
 
+from django.views import View
+from django.http import HttpResponse, JsonResponse
+
 from django.views.generic import (
     ListView,
     DetailView,
@@ -119,3 +122,8 @@ class PersonaDeleteView(DeleteView):
     model = Persona
     #template_name_suffix = '_delete'
     success_url = reverse_lazy('personas:persona-list')
+
+class PersonaQueryView(View):
+    def get(self, request, *args, **kwargs):
+        queryset = Persona.objects
+        return JsonResponse(list(queryset.values()), safe = False)
